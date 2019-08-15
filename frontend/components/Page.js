@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import styled, { ThemeProvider, injectGlobal } from 'styled-components'
-import Header from '../components/Header'
-import Meta from '../components/Meta'
+import styled, { ThemeProvider, injectGlobal } from 'styled-components';
+import Header from './Header';
+import Meta from './Meta';
 
 const theme = {
   red: '#FF0000',
@@ -22,13 +22,12 @@ const Inner = styled.div`
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
   padding: 2rem;
-  background: red;
 `;
 
 injectGlobal`
   @font-face {
     font-family: 'radnika_next';
-    src: url('/static/radnikanext-medium-webfont.woff2');
+    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
   }
@@ -40,9 +39,11 @@ injectGlobal`
     box-sizing: inherit;
   }
   body {
-    margin: 0;
     padding: 0;
+    margin: 0;
     font-size: 1.5rem;
+    line-height: 2;
+    font-family: 'radnika_next';
   }
   a {
     text-decoration: none;
@@ -57,9 +58,7 @@ class Page extends Component {
         <StyledPage>
           <Meta />
           <Header />
-          <Inner>
-            {this.props.children}
-          </Inner>
+          <Inner>{this.props.children}</Inner>
         </StyledPage>
       </ThemeProvider>
     );
