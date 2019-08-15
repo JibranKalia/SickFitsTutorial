@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import styled, { ThemeProvider, injectGlobal } from 'styled-components'
 import Header from '../components/Header'
 import Meta from '../components/Meta'
-import styled, { ThemeProvider, injectGlobal } from 'styled-components'
 
 const theme = {
   red: '#FF0000',
@@ -23,6 +23,31 @@ const Inner = styled.div`
   margin: 0 auto;
   padding: 2rem;
   background: red;
+`;
+
+injectGlobal`
+  @font-face {
+    font-family: 'radnika_next';
+    src: url('/static/radnikanext-medium-webfont.woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  html {
+    box-sizing: border-box;
+    font-size: 10px;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+  }
+  a {
+    text-decoration: none;
+    color: ${theme.black};
+  }
 `;
 
 class Page extends Component {
